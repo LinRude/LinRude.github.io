@@ -15,24 +15,24 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="webpack知识点总结[toc] 一、为什么要使用构建工具?（webpack) 浏览器的模块化   效率问题：精细的模块划分带来了更多的JS文件，更多的JS文件带来了更多的请求，降低了页面访问的效率问题 兼容性问题：浏览器目前仅支持ES6的模块化标准，并且还存在兼容性的问题 工具问题：浏览器不支持npm下载的第三方包 还有等等大量的问题：当开发一个具有规模的程序，将会遇到非常多的业务问题；如：执">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/1.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/2.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/3.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/4.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/5.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/6.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/7.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/8.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/9.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/10.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/11.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/12.png">
-<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/13.png">
-<meta property="article:published_time" content="2020-06-30T14:42:49.000Z">
-<meta property="article:modified_time" content="2020-06-30T14:44:06.218Z">
+<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/3.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/4.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/5.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/6.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/7.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/8.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/9.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/10.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/11.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/12.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/13.png">
+<meta property="article:published_time" content="2020-06-30T15:02:23.000Z">
+<meta property="article:modified_time" content="2020-06-30T15:03:52.596Z">
 <meta property="article:author" content="Lin Rude">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/assets/1.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -190,7 +190,7 @@
 
         
         <a href="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2020-06-30T14:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-30</time>
+  	<time datetime="2020-06-30T15:02:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-30</time>
 </a>
         
       </header>
@@ -280,14 +280,14 @@
 
 
 <h2 id="六、webpack的编译过程"><a href="#六、webpack的编译过程" class="headerlink" title="六、webpack的编译过程"></a>六、webpack的编译过程</h2><p>webpack的作用是将源代码编译（构建、打包）成最终代码</p>
-<p><img src="assets/1.png" alt=""></p>
+<p><img src="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/1.png" alt></p>
 <p>整个过程大致分为三个步骤</p>
 <ol>
 <li>初始化</li>
 <li>编译</li>
 <li>输出</li>
 </ol>
-<p><img src="assets/2.png" alt=""></p>
+<p><img src="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/2.png" alt></p>
 <p><strong>初始化:</strong> </p>
 <p>此阶段，webpack会将<strong>CLI参数</strong>、<strong>配置文件</strong>、<strong>默认配置</strong>进行融合，形成一个最终的配置对象。</p>
 <p>对配置的处理过程是依托一个第三方库<code>yargs</code>完成的</p>
@@ -299,7 +299,7 @@
 </ol>
 <p>chunk是webpack在内部构建过程中的一个概念，译为<code>块</code>，它表示通过某个入口找到的所有依赖的统称。</p>
 <p>根据入口模块（默认为<code>./src/index.js</code>）创建一个chunk</p>
-<p><img src="assets/3.png" alt=""></p>
+<p><img src="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/3.png" alt></p>
 <p>每个chunk都有至少两个属性：</p>
 <ul>
 <li>name：默认为main</li>
@@ -308,43 +308,43 @@
 <ol start="2">
 <li><strong>构建所有依赖模块</strong></li>
 </ol>
-<p><img src="assets/4.png" alt=""></p>
+<p><img src="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/4.png" alt></p>
 <blockquote>
 <p>AST在线测试工具：<a href="https://astexplorer.net/" target="_blank" rel="noopener">https://astexplorer.net/</a></p>
 </blockquote>
 <p>简图</p>
-<p><img src="assets/5.png" alt=""></p>
+<p><img src="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/5.png" alt></p>
 <ol start="3">
 <li><strong>产生chunk assets</strong></li>
 </ol>
 <p>在第二步完成后，chunk中会产生一个模块列表，列表中包含了<strong>模块id</strong>和<strong>模块转换后的代码</strong></p>
 <p>接下来，webpack会根据配置为chunk生成一个资源列表，即<code>chunk assets</code>，资源列表可以理解为是生成到最终文件的文件名和文件内容</p>
-<p><img src="assets/6.png" alt=""></p>
+<p><img src="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/6.png" alt></p>
 <blockquote>
 <p>chunk hash是根据所有chunk assets的内容生成的一个hash字符串</p>
 </blockquote>
 <p>简图</p>
-<p><img src="assets/7.png" alt=""></p>
+<p><img src="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/7.png" alt></p>
 <ol start="4">
 <li><strong>合并chunk assets</strong></li>
 </ol>
 <p>将多个chunk的assets合并到一起，并产生一个总的hash</p>
-<p><img src="assets/8.png" alt=""></p>
+<p><img src="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/8.png" alt></p>
 <p><strong>输出:</strong> </p>
 <p>此步骤非常简单，webpack将利用node中的fs模块（文件处理模块），根据编译产生的总的assets，生成相应的文件。</p>
-<p><img src="assets/9.png" alt=""></p>
+<p><img src="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/9.png" alt></p>
 <p><strong>总过程:</strong></p>
-<p><img src="assets/10.png" alt=""></p>
+<p><img src="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/10.png" alt></p>
 <h2 id="七、loader"><a href="#七、loader" class="headerlink" title="七、loader"></a>七、loader</h2><blockquote>
 <p>webpack做的事情，仅仅是分析出各种模块的依赖关系，然后形成资源列表，最终打包生成到指定的文件中。<br>更多的功能需要借助webpack loaders和webpack plugins完成。</p>
 </blockquote>
 <p>webpack loader:loader本质上是一个函数，它的作用是将某个源码字符串转换成另外一个源码字符串返回。</p>
-<p><img src="assets/11.png" alt=""></p>
+<p><img src="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/11.png" alt></p>
 <p>loader函数将在模块解析过程中被调用，以得到最终的源码</p>
 <p><strong>chunk中解析模块的更纤细流程：</strong></p>
-<p><img src="assets/12.png" alt=""></p>
+<p><img src="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/12.png" alt></p>
 <p><strong>处理loaders流程：</strong></p>
-<p><img src="assets/13.png" alt=""></p>
+<p><img src="/2020/06/30/webpack%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/13.png" alt></p>
 <p><strong>loader配置：</strong></p>
 <p><strong>完整配置</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="built_in">module</span>: &#123; <span class="comment">//针对模块的配置，目前版本只有两个配置，rules、noParse</span></span><br><span class="line">        rules: [ <span class="comment">//模块匹配规则，可以存在多个规则</span></span><br><span class="line">            &#123; <span class="comment">//每个规则是一个对象</span></span><br><span class="line">                test: <span class="regexp">/\.js$/</span>, <span class="comment">//匹配的模块正则</span></span><br><span class="line">                use: [ <span class="comment">//匹配到后应用的规则模块</span></span><br><span class="line">                    &#123;  <span class="comment">//其中一个规则</span></span><br><span class="line">                        loader: <span class="string">"模块路径"</span>, <span class="comment">//loader模块的路径，该字符串会被放置到require中</span></span><br><span class="line">                        options: &#123; <span class="comment">//向对应loader传递的额外参数</span></span><br><span class="line"></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -369,6 +369,7 @@
 <li>stats：配置控制台输出内容</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    devServer:&#123;</span><br><span class="line">        port:<span class="number">8081</span>,</span><br><span class="line">        openPage:<span class="string">"list.html"</span>,</span><br><span class="line">        open:<span class="literal">true</span>,</span><br><span class="line">        quiet:<span class="literal">true</span>,</span><br><span class="line">        proxy:&#123;</span><br><span class="line">            <span class="string">"api"</span>:<span class="string">"http://101.132.72.36:5100"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
 
       
